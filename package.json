@@ -1,0 +1,17 @@
+{
+  "name": "apisls",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "sls offline --reloadHandler"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.149",
+    "esbuild": "^0.25.4",
+    "serverless-esbuild": "^1.55.0",
+    "serverless-offline": "^14.4.0",
+    "typescript": "^5.8.3"
+  },
+  "type": "module"
+}

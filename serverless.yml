@@ -1,0 +1,38 @@
+org: zkauansantos
+service: apisls
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-2
+
+package:
+  individually: true
+
+custom:
+  esbuild:
+    target: node20
+    format: esm
+    minify: true
+    outputFileExtension: .mjs
+
+build:
+  esbuild: false
+
+functions:
+  hello:
+    handler: src/functions/hello.handler
+    events:
+      - httpApi:
+          path: /
+          method: GET
+  getUserById:
+    handler: src/functions/getUserById.handler
+    events:
+      - httpApi:
+          path: /users/{userId}
+          method: GET
